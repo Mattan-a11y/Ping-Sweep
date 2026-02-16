@@ -100,8 +100,8 @@ Contributions, issues, and feature requests are welcome!
 ## 👤 Author
 
 Your Name
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+- GitHub: [@Mattan-a11y](https://github.com/Mattan-a11y)
+- LinkedIn: [Matin Shahid](https://www.linkedin.com/in/matin-shahid-1b426a217/)
 
 ## ⚖️ Legal Disclaimer
 
