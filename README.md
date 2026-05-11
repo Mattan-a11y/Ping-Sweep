@@ -1,57 +1,53 @@
-# Network Ping Sweep Tool
+# network-ping-sweep
 
-A fast and efficient network discovery tool that performs ping sweeps to identify active hosts on a network.
+A multithreaded ping sweep tool for quick host discovery across a network range. Written in pure Python — no external dependencies.
 
-## 🎯 Features
+## Features
 
-- **Fast scanning** with multi-threaded execution
-- **CIDR notation support** for flexible network ranges
-- **Cross-platform** compatibility (Windows, Linux, macOS)
-- **Export results** to text file
-- **Real-time feedback** showing discovered hosts
+- CIDR notation support (`/24`, `/28`, etc.)
+- Multithreaded scanning with adjustable thread count
+- Optional results export to file
+- Works on Windows, Linux, and macOS
 
-## 📋 Requirements
+## Requirements
 
-- Python 3.6 or higher
-- No external dependencies (uses only standard library)
+Python 3.6+, nothing else.
 
-## 🚀 Installation
+## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/network-ping-sweep.git
+git clone https://github.com/Mattan-a11y/network-ping-sweep.git
 cd network-ping-sweep
 
-# Make the script executable (Linux/macOS)
+# Linux/macOS
 chmod +x ping_sweep.py
 ```
 
-## 💻 Usage
-
-### Basic Usage
+## Usage
 
 ```bash
-# Scan a /24 network
+# Basic scan
 python3 ping_sweep.py 192.168.1.0/24
 
-# Scan a smaller subnet
-python3 ping_sweep.py 10.0.0.0/28
-```
-
-### Advanced Options
-
-```bash
-# Use more threads for faster scanning
+# More threads
 python3 ping_sweep.py 192.168.1.0/24 -t 100
 
-# Save results to a file
+# Save output
 python3 ping_sweep.py 192.168.1.0/24 -o results.txt
 
-# Combine options
+# Combined
 python3 ping_sweep.py 10.0.0.0/24 -t 75 -o scan_results.txt
 ```
 
-## 📊 Example Output
+## Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `network` | Target range in CIDR notation | Required |
+| `-t, --threads` | Concurrent threads | 50 |
+| `-o, --output` | Save results to file | — |
+
+## Example output
 
 ```
 [*] Starting ping sweep on 192.168.1.0/24
@@ -60,47 +56,22 @@ python3 ping_sweep.py 10.0.0.0/24 -t 75 -o scan_results.txt
 --------------------------------------------------
 [+] 192.168.1.1 is UP
 [+] 192.168.1.10 is UP
-[+] 192.168.1.15 is UP
 [+] 192.168.1.100 is UP
 --------------------------------------------------
-[*] Scan complete: 4 host(s) found
+[*] Scan complete: 3 host(s) found
 [*] End time: 2024-02-16 14:30:15
 ```
 
-## 🔧 Options
+## Notes
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `network` | Network range in CIDR notation | Required |
-| `-t, --threads` | Number of concurrent threads | 50 |
-| `-o, --output` | Output file for results | None |
+- Only use this on networks you own or have explicit permission to scan
+- ICMP may be blocked depending on firewall rules
+- Large ranges (`/16` and up) will take considerably longer
 
-## ⚠️ Important Notes
+## License
 
-- **Network permissions**: Make sure you have authorization to scan the target network
-- **Firewall rules**: ICMP may be blocked on some networks
-- **Performance**: Adjust thread count based on your system capabilities
-- **Large networks**: Scanning /16 or larger networks may take considerable time
+MIT
 
-## 🎓 Use Cases
+## Author
 
-- Network inventory and documentation
-- Troubleshooting connectivity issues
-- Security audits (with proper authorization)
-- Network mapping before deeper scans
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
-
-## 👤 Author
-- GitHub: [@Mattan-a11y](https://github.com/Mattan-a11y)
-- LinkedIn: [Matin Shahid](https://www.linkedin.com/in/matin-shahid-1b426a217/)
-
-## ⚖️ Legal Disclaimer
-
-This tool is for educational and authorized testing purposes only. Always obtain proper authorization before scanning any network you don't own or have explicit permission to test.
+[@Mattan-a11y](https://github.com/Mattan-a11y) · [LinkedIn](https://www.linkedin.com/in/matin-shahid-1b426a217/)
